@@ -7,4 +7,4 @@ What I learned:
 - User input validation in Python
 - Continuously running a program until a user chooses to terminate program by choosing quit option
 - Working with random numbers and using that to generate useful data for functions involving chance
-- Python flow control and the differences between local/global variables
+- Python flow of control and the differences between local/global variables
