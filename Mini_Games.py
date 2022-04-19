@@ -125,6 +125,19 @@ class BlackJack():
             return 11
         else:
             return x
+
+    def displayCards(list):
+        for x in list:
+            if x[1] == 11:
+                print("Jack of " + x[0])
+            elif x[1] == 12:
+                print("Queen of " + x[0])
+            elif x[1] == 13:
+                print("King of " + x[0])
+            elif x[1] == 14:
+                print("Ace of " + x[0])
+            else:
+                print(str(x[1]) + " of " + x[0])
     
     def winEvaluator(x, y, pBust, dBust):
         if x == y:
@@ -180,17 +193,7 @@ class BlackJack():
             ##############################################################
             if playerHandValue > 21:
                 print("Cards: ")
-                for x in playerCardsInHand:
-                    if x[1] == 11:
-                        print("Jack of " + x[0])
-                    elif x[1] == 12:
-                        print("Queen of " + x[0])
-                    elif x[1] == 13:
-                        print("King of " + x[0])
-                    elif x[1] == 14:
-                        print("Ace of " + x[0])
-                    else:
-                        print(str(x[1]) + " of " + x[0])
+                BlackJack.displayCards(playerCardsInHand)
                 print("Value of hand: " + str(playerHandValue))
                 print("Bust!")
                 playerBust = True
@@ -202,17 +205,7 @@ class BlackJack():
             #########################################################################################
 
             print("Cards: ")
-            for x in playerCardsInHand:
-                if x[1] == 11:
-                    print("Jack of " + x[0])
-                elif x[1] == 12:
-                    print("Queen of " + x[0])
-                elif x[1] == 13:
-                    print("King of " + x[0])
-                elif x[1] == 14:
-                    print("Ace of " + x[0])
-                else:
-                    print(str(x[1]) + " of " + x[0])
+            BlackJack.displayCards(playerCardsInHand)
             print("Value of hand: " + str(playerHandValue))
             hit = input("\n Would you like to hit? (y/n)")
             hit = hit.lower()
@@ -248,14 +241,6 @@ class BlackJack():
         dealerHandValue += BlackJack.valueCheck(secondDealerCardValue)
         cardsLeft -= 1
         dealerCardsInHand = [firstDealerCard, secondDealerCard]
-        dealerAceChecker = [firstDealerCard, secondDealerCard]
-        if dealerHandValue > 21:
-            for x in dealerAceChecker:
-                theDealerCardValue = x[1]
-                checkedDealerValue = BlackJack.valueCheck(theDealerCardValue)
-                if checkedDealerValue == 11:
-                    dealerHandValue -= 10
-                aceChecker.remove(x)
         if playerHandValue < 21:
             while dealerHandValue < playerHandValue:
                 anotherDealerCardSelector = random.randint(0, cardsLeft)
@@ -264,18 +249,9 @@ class BlackJack():
                 dealerHandValue += BlackJack.valueCheck(anotherDealerCardValue)
                 dealerCardsInHand.append(anotherDealerCard)
 
+
         print("Dealer's Cards: ")
-        for x in dealerCardsInHand:
-            if x[1] == 11:
-                print("Jack of " + x[0])
-            elif x[1] == 12:
-                print("Queen of " + x[0])
-            elif x[1] == 13:
-                print("King of " + x[0])
-            elif x[1] == 14:
-                print("Ace of " + x[0])
-            else:
-                print(str(x[1]) + " of " + x[0])
+        BlackJack.displayCards(dealerCardsInHand)
         print("Value of dealer's hand: " + str(dealerHandValue))
 
         ######################################################################
